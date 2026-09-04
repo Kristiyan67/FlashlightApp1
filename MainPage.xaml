@@ -1,0 +1,73 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlashlightApp.MainPage"
+             x:Name="RootPage">
+
+    <Grid x:Name="RootGrid" BackgroundColor="Black">
+
+        <!-- Normal buttons view -->
+        <VerticalStackLayout x:Name="ButtonPanel"
+                              Spacing="30"
+                              HorizontalOptions="Center"
+                              VerticalOptions="Center">
+
+            <Button x:Name="TorchButton"
+                    Text="Turn On Flashlight"
+                    Clicked="OnTorchClicked"
+                    WidthRequest="220"
+                    HeightRequest="60"
+                    FontSize="18"
+                    BackgroundColor="Gray"
+                    TextColor="White" />
+
+            <Button x:Name="ScreenLightButton"
+                    Text="Screen Light Mode"
+                    Clicked="OnScreenLightClicked"
+                    WidthRequest="220"
+                    HeightRequest="60"
+                    FontSize="18"
+                    BackgroundColor="Gray"
+                    TextColor="White" />
+
+        </VerticalStackLayout>
+
+        <!-- Screen light overlay (hidden by default) -->
+        <Grid x:Name="ScreenLightOverlay"
+              BackgroundColor="White"
+              IsVisible="False">
+
+            <VerticalStackLayout VerticalOptions="End"
+                                  Margin="40,0,40,40"
+                                  Spacing="15">
+
+                <Label x:Name="BrightnessLabel"
+                       Text="Brightness"
+                       TextColor="Black"
+                       FontSize="16"
+                       HorizontalOptions="Center" />
+
+                <Slider x:Name="BrightnessSlider"
+                        Minimum="0.2"
+                        Maximum="1.0"
+                        Value="1.0"
+                        ValueChanged="OnBrightnessChanged"
+                        MinimumTrackColor="Black"
+                        MaximumTrackColor="Gray"
+                        ThumbColor="Black" />
+
+                <Button Text="Turn Off"
+                        Clicked="OnExitScreenLightClicked"
+                        HorizontalOptions="Center"
+                        WidthRequest="180"
+                        HeightRequest="55"
+                        FontSize="18"
+                        BackgroundColor="Black"
+                        TextColor="White" />
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
